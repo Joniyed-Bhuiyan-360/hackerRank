@@ -14,7 +14,7 @@ public class Main {
         int res = 0;
         int count=p;
 
-        while(count<s){
+        while(count<=s){
             res++;
             p = Math.max(m,p-d);
             count += p;

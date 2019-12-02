@@ -16,12 +16,27 @@ public class Main {
             List<Integer> res = new ArrayList<>();
             int i = 0;
             int j = n-1;
+            int temp=0;
             while(n-->0){
-                res.add((a*j)+(b*i));
-                i++;
-                j--;
+                if(a>b){
+                    temp = (a*i)+(b*j);
+                    if(!res.contains(temp)){
+                        res.add(temp);
+                    }
+                    i++;
+                    j--;
+                }else{
+                    temp = (a*j)+(b*i);
+                    if(!res.contains(temp)){
+                        res.add(temp);
+                    }
+                    i++;
+                    j--;
+                }
             }
-            System.out.println(res);
+            for(int k=0;k<res.size();k++){
+                System.out.print(res.get(k)+" ");
+            }
             res.clear();
         }
     }
