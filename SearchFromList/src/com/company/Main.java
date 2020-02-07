@@ -9,9 +9,11 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter a String: ");
+        System.out.println("\n\nEnter a String: ");
         String userInput = input.next();
+
         long start = System.currentTimeMillis();
+
         File file = new File("D:\\Intelijj_Idea\\SearchFromList\\data.txt");
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -26,7 +28,7 @@ public class Main {
         }
         String str = stringBuilder.toString();
         SortedSet<String> l1 = new TreeSet<>(Arrays.asList(str.split(" ")));
-        int total_wrod = (new ArrayList<String>(Arrays.asList(str.split(" "))).size());
+        int total_wrod = (new ArrayList<>(Arrays.asList(str.split(" "))).size());
 
         List<String> list = new ArrayList<>(l1);
         List<String> temp1 = new ArrayList<>();
@@ -53,11 +55,17 @@ public class Main {
         System.out.println("\n\nTotal Word: "+ total_wrod+"\n\n\nSuggested word: \n");
 
 
-        list.forEach(System.out::println);
 
-        if(list.size()<10){
-            for(int i=list.size();i<10;i++){
-                System.out.println(temp1.get(i));
+        if(list.size()>10){
+            for(int i=0;i<10;i++){
+                System.out.println(list.get(i));
+            }
+        }else {
+            list.forEach(System.out::println);
+            if (list.size() < 10) {
+                for (int i = list.size(); i < 10; i++) {
+                    System.out.println(temp1.get(i));
+                }
             }
         }
 
