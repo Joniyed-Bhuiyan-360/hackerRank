@@ -55,6 +55,12 @@ public class Main {
 
         list.forEach(System.out::println);
 
+        if(list.size()<10){
+            for(int i=list.size();i<10;i++){
+                System.out.println(temp1.get(i));
+            }
+        }
+
         long end = System.currentTimeMillis();
         System.out.println("\n\nTime: "+((Double.parseDouble(""+(end-start)))/1000)+" s");
 
