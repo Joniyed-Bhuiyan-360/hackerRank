@@ -7,9 +7,11 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        while (true) {
-            Scanner input = new Scanner(System.in);
-            System.out.println("\n\nEnter a String: ");
+
+        Scanner input = new Scanner(System.in);
+        System.out.print("\nContinue? yes or no: ");
+        while (!input.next().equals("no")) {
+            System.out.print("\nEnter a String: ");
             String userInput = input.next();
 
             long start = System.currentTimeMillis();
@@ -32,7 +34,6 @@ public class Main {
 
             List<String> list = new ArrayList<>(l1);
             List<String> temp1 = new ArrayList<>();
-            List<String> temp = new ArrayList<>();
 
             list.forEach(value ->
             {
@@ -49,13 +50,11 @@ public class Main {
                     if (!(list.get(j).charAt(i) == userInput.charAt(i))) {
                         list.remove(j);
                         j--;
-                    } else {
-                        temp.add(list.get(j));
                     }
                 }
             }
 
-            System.out.println("\n\nTotal Word: " + total_wrod + "\n\n\nSuggested word: \n");
+            System.out.println("\nTotal Word: " + total_wrod + "\n\nSuggested word:");
 
             if (list.size() > 10) {
                 for (int i = 0; i < 10; i++) {
@@ -63,7 +62,6 @@ public class Main {
                 }
             } else {
                 list.forEach(System.out::println);
-                temp.forEach(System.out::println);
                 if (temp1.size() > 10 - list.size()) {
                     for (int i = 0; i < 10 - list.size(); i++) {
                         System.out.println(temp1.get(i));
@@ -72,7 +70,11 @@ public class Main {
             }
 
             long end = System.currentTimeMillis();
-            System.out.println("\n\nTime: " + ((Double.parseDouble("" + (end - start))) / 1000) + " s");
+
+            //print the total time needed at second.....
+            System.out.println("\nTime: " + ((Double.parseDouble("" + (end - start))) / 1000) + " s");
+
+            System.out.print("Continue? yes or no: ");
         }
 
     }
